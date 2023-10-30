@@ -1,6 +1,6 @@
-<?php
-/**
- * Load widgets
- */
-
-
+<?php
+/**
+ * Load widgets
+ */
+
+
