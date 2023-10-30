@@ -17,6 +17,7 @@ $on_button = get_field("on_button");
         $args = array(
             "post_type" => "post",
             "posts_per_page" => 4,
+            "post_status"=> "publish",
         );
         $the_query = new WP_Query($args); ?>
         <?php if ($the_query->have_posts()) : ?>

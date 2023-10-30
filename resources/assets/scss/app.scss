@@ -24,6 +24,10 @@
 // Utilities
 @import "~bootstrap/scss/utilities/api";
 
+//Slick 
+@import '~slick-carousel/slick/slick-theme';
+@import '~slick-carousel/slick/slick';
+
 // Application
 @import "shared/all";
 @import "components/all";
