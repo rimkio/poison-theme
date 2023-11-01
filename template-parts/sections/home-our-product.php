@@ -3,7 +3,7 @@ $opr_subheading = get_field("opr_subheading");
 $opr_heading = get_field("opr_heading");
 ?>
 
-<section class="section home-our-promotions">
+<section class="section home-our-product">
     <div class="container">
         <?php if (isset($opr_subheading) && !empty($opr_subheading)) : ?>
             <h5 data-aos="fade-up" data-aos-duration="500" class="text-center sub-heading"><?= $opr_subheading ?></h5>

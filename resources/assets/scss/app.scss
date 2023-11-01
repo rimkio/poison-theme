@@ -24,6 +24,16 @@
 // Utilities
 @import "~bootstrap/scss/utilities/api";
 
+//slick
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+// import lightgallery
+@import '~lightgallery/scss/lightgallery.scss';
+@import '~lightgallery/scss/lg-zoom.scss';
+@import '~lightgallery/scss/lg-thumbnail.scss';
+@import '~lightgallery/css/lightgallery-bundle.css';
+
 // Application
 @import "shared/all";
 @import "components/all";

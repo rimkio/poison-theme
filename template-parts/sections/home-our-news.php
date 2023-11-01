@@ -12,7 +12,7 @@ $on_button = get_field("on_button");
         <?php if (isset($on_heading) && !empty($on_heading)) : ?>
             <h2 data-aos="fade-up" data-aos-duration="500" class="text-center"><?= $on_heading ?></h2>
         <?php endif; ?>
-        <?php echo poision_line_heading(); ?>
+        <?php poision_line_heading(); ?>
         <?php
         $args = array(
             "post_type" => "post",

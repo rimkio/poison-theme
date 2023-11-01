@@ -676,7 +676,7 @@
                     "name": "video",
                     "aria-label": "",
                     "type": "file",
-                    "instructions": "",
+                    "instructions": "Format video: MP4",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -688,7 +688,7 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ".webm, .mp4",
+                    "mime_types": "webm, mp4, ogg",
                     "parent_repeater": "field_653fca0445670"
                 },
                 {
@@ -766,5 +766,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698842371
+    "modified": 1698843865
 }
