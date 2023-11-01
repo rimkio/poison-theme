@@ -21,15 +21,15 @@ $ab_description = get_field("ab_description");
                         <h5 data-aos="fade-up" data-aos-duration="500"><?= $ab_subheading ?></h5>
                     <?php endif; ?>
                     <?php if (isset($ab_heading) && !empty($ab_heading)) : ?>
-                        <h2 data-aos="fade-up" data-aos-duration="500" ><?= $ab_heading ?></h2>
+                        <h2 data-aos="fade-up" data-aos-duration="500"><?= $ab_heading ?></h2>
                     <?php endif; ?>
                     <div data-aos="fade-up" data-aos-duration="500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="205" height="17" viewBox="0 0 205 17" fill="none">
-                        <path d="M14.1004 9.00006L204.1 9.00008" stroke="#D02028" stroke-width="2" />
-                        <rect x="1.41421" y="8.89948" width="9.31359" height="9.31359" transform="rotate(-45 1.41421 8.89948)" stroke="#D02028" stroke-width="2" />
-                    </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="205" height="17" viewBox="0 0 205 17" fill="none">
+                            <path d="M14.1004 9.00006L204.1 9.00008" stroke="#D02028" stroke-width="2" />
+                            <rect x="1.41421" y="8.89948" width="9.31359" height="9.31359" transform="rotate(-45 1.41421 8.89948)" stroke="#D02028" stroke-width="2" />
+                        </svg>
                     </div>
-                    
+
                     <?php if (isset($ab_description) && !empty($ab_description)) : ?>
                         <div data-aos="fade-up" data-aos-duration="500" class="home-aboutus__wrap-content__desc"> <?= $ab_description ?></div>
                     <?php endif; ?>

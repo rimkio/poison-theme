@@ -8,7 +8,13 @@
     padding: 23px 68px;
     position: relative;
     border: 2px solid var(--color3, $color_3);
-    transition: all 0.1s ease;
+    transition: all 0.2s ease;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 16px;
+        padding: 18px 50px;
+
+    }
 
     &:hover {
         background: $color_3;
@@ -24,6 +30,12 @@
         height: calc(100% - 24px);
         z-index: -1;
         transition: all 0.5s ease;
+        @include media-breakpoint-down(sm) {
+            top: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+        }
     }
 
 

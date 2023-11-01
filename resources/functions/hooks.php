@@ -152,3 +152,12 @@ function poison_child_deregister_styles()
 
 add_action('wp_enqueue_scripts', 'poison_child_deregister_styles', 20);
 
+/*
+ * Popup menu mobile
+ */
+
+function poison_child_menu_mobile() {
+	load_template(get_template_directory() . '/template-parts/content-menu-mobile.php', false);
+}
+
+add_action('poison_hook_menu_mobile', 'poison_child_menu_mobile');

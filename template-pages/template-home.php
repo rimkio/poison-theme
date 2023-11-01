@@ -77,5 +77,9 @@ $image_4 = get_field("image_4");
 </section>
 
 <?php get_template_part('template-parts/sections/home','aboutus'); ?>
+<?php get_template_part('template-parts/sections/home','our-ingredients'); ?>
+<?php get_template_part('template-parts/sections/home','our-news'); ?>
+<?php get_template_part('template-parts/sections/home','our-promotions'); ?>
+<?php get_template_part('template-parts/sections/home','our-gallery'); ?>
 
 <?php get_footer(); ?>
