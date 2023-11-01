@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import './components/navigation'
 import './components/function' 
 import './components/gallery'
+import './components/tab'
 
 AOS.init({
 
