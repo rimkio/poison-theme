@@ -109,9 +109,9 @@
         {
             "key": "field_653e7426d3545",
             "label": "Bản đồ",
-            "name": "image_ve_poison_cafe",
+            "name": "map_poison_cafe",
             "aria-label": "",
-            "type": "oembed",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -120,8 +120,11 @@
                 "class": "",
                 "id": ""
             },
-            "width": "",
-            "height": ""
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -142,5 +145,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698768993
+    "modified": 1698846964
 }
