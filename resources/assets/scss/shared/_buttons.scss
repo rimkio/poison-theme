@@ -1,0 +1,30 @@
+.btn {
+    color: var(--color5, #FFF);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background: transparent;
+    padding: 23px 68px;
+    position: relative;
+    border: 2px solid var(--color3, $color_3);
+    transition: all 0.1s ease;
+
+    &:hover {
+        background: $color_3;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background-color: var(--color3, $color_3);
+        width: calc(100% - 24px);
+        height: calc(100% - 24px);
+        z-index: -1;
+        transition: all 0.5s ease;
+    }
+
+
+}
