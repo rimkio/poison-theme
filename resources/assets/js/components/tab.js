@@ -1,13 +1,20 @@
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
+const PoisionProductTab = () => {
+   const __tab_wrap = $('.home-our-product__cat');
+   if (!__tab_wrap.length) return;
+
+   $(document).on("click", ".home-our-product__cat-tab__item", function () {
+      $(this).parent().find('.home-our-product__cat-tab__item').removeClass('active');
+      $(this).addClass('active');
+      let ID = $(this).data('id');
+      let __tab_content = $(this).parents(__tab_wrap).find('.home-our-product__cat-tabcontent');
+      let __tab_content_active = $(this).parents(__tab_wrap).find(`[data-id=${ID}]`);
+      __tab_content.removeClass('active');
+      __tab_content_active.addClass('active');
+      __tab_content.find('.home-our-product__cat-tabcontent__item').removeClass('aos-animate');
+      setTimeout(function() {
+         __tab_content_active.find('.home-our-product__cat-tabcontent__item').addClass('aos-animate')
+      }, 100);
+   });
+}
+
+PoisionProductTab();
