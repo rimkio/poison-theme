@@ -22,3 +22,50 @@ img {
    font-weight: 400;
    line-height: normal;
 }
+
+.slick-dots {
+   position: relative;
+   bottom: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   list-style-type: none;
+   gap: 30px;
+   margin-top: 46px;
+
+   @include media-breakpoint-down(sm) {
+       margin-top: 30px;
+       gap: 15px;
+   }
+
+   li {
+       height: auto;
+       width: auto;
+
+       &.slick-active {
+           button {
+               background-color: #D02028;
+           }
+       }
+
+       button {
+           height: 12px;
+           width: 12px;
+           border-radius: 50%;
+           background-color: transparent;
+           border: 2px solid #D02028;
+           overflow: hidden;
+           text-indent: -1000px;
+
+           @include media-breakpoint-down(sm) {
+               height: 10px;
+               width: 10px;
+               border: 1px solid #D02028;
+           }
+
+           &::before {
+               display: none;
+           }
+       }
+   }
+}

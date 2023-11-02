@@ -2,7 +2,7 @@
 $oi_subheading = get_field("on_subheading");
 $oi_heading = get_field("on_heading");
 ?>
-<div class="section-4">
+<div class="section-4 home-our-ingredients">
     <div class="container-fluid">
         <div class="row">
             <?php

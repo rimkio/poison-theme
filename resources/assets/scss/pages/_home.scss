@@ -236,7 +236,7 @@
 
 .home-our-news {
     padding-top: 116px;
-    padding-bottom: 66px;
+    padding-bottom: 61px;
 
     h5 {
         margin-bottom: 14px;
@@ -334,6 +334,19 @@
     }
 }
 
+.home-our-ingredients{
+    .slick-arrow{
+        top: unset;
+        transform: none;
+        &.slick-prev{
+            left: unset;
+        }
+        &::before{
+            display: none;
+        }
+    }
+}
+
 .home-our-promotions {
     padding-top: 55px;
     padding-bottom: 55px;
@@ -356,53 +369,6 @@
 
     .slick-dotted.slick-slider {
         margin-bottom: 0;
-    }
-
-    .slick-dots {
-        position: relative;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        list-style-type: none;
-        gap: 30px;
-        margin-top: 46px;
-
-        @include media-breakpoint-down(sm) {
-            margin-top: 30px;
-            gap: 15px;
-        }
-
-        li {
-            height: auto;
-            width: auto;
-
-            &.slick-active {
-                button {
-                    background-color: #D02028;
-                }
-            }
-
-            button {
-                height: 12px;
-                width: 12px;
-                border-radius: 50%;
-                background-color: transparent;
-                border: 2px solid #D02028;
-                overflow: hidden;
-                text-indent: -1000px;
-
-                @include media-breakpoint-down(sm) {
-                    height: 10px;
-                    width: 10px;
-                    border: 1px solid #D02028;
-                }
-
-                &::before {
-                    display: none;
-                }
-            }
-        }
     }
 
     &__carousel {
@@ -443,4 +409,9 @@
             }
         }
     }
+}
+
+.section-our-gallery{
+    padding-top: 61px;
+    padding-bottom: 116px;
 }
