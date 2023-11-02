@@ -137,9 +137,51 @@ function poison_post_loop_item_template($post_id, $index)
 }
 
 
+/*
+ * Display all category post
+ */
+
+function display_all_categories_posts_section() {
+	$categories = get_categories(array(
+		'orderby' => 'name',
+		'order' => 'ASC',
+	));
+
+	if ($categories) {
+		foreach ($categories as $category) {
+			echo '<ul>';
+				echo '<li><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+			echo '</ul>';
+		}
+	} else {
+		echo 'No categories found.';
+	}
+}
+
+add_action('poison_hook_display_all_categories', 'display_all_categories_posts_section');
 
 
+/*
+ * Display all category post
+ */
 
+function display_all_tags_for_posts() {
+	$post_tags = get_tags(array(
+		'hide_empty' => false
+	));
+
+	if ($post_tags) {
+		echo '<ul>';
+
+		foreach ($post_tags as $tag) {
+			echo '<li><a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a></li>';
+		}
+
+		echo '</ul>';
+	}
+}
+
+add_action('poison_hook_display_all_tags', 'display_all_tags_for_posts');
 
 
 function poison_child_deregister_styles()
@@ -152,3 +194,12 @@ function poison_child_deregister_styles()
 
 add_action('wp_enqueue_scripts', 'poison_child_deregister_styles', 20);
 
+/*
+ * Popup menu mobile
+ */
+
+function poison_child_menu_mobile() {
+	load_template(get_template_directory() . '/template-parts/content-menu-mobile.php', false);
+}
+
+add_action('poison_hook_menu_mobile', 'poison_child_menu_mobile');

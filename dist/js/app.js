@@ -18,6 +18,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/navigation */ "./resources/assets/js/components/navigation.js");
 /* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_navigation__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_function__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/function */ "./resources/assets/js/components/function.js");
+/* harmony import */ var _components_gallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/gallery */ "./resources/assets/js/components/gallery.js");
+
 
 
 
@@ -86,6 +88,69 @@ global.$ = global.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/gallery.js":
+/*!***************************************************!*\
+  !*** ./resources/assets/js/components/gallery.js ***!
+  \***************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(jQuery) {/* harmony import */ var lightgallery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lightgallery */ "./node_modules/lightgallery/lightgallery.es5.js");
+/* harmony import */ var lightgallery_plugins_video__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lightgallery/plugins/video */ "./node_modules/lightgallery/plugins/video/lg-video.es5.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+
+
+(function ($) {
+  "use strict";
+
+  var PoisionSlickVideoGallery = function PoisionSlickVideoGallery() {
+    var WrapCarousel = $('.section-our-gallery__carousel');
+    if (!WrapCarousel.length) return;
+    WrapCarousel.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      speed: 300,
+      dots: true,
+      arrows: false,
+      infinite: false
+    });
+  };
+  $(window).on("load", function () {
+    var videoCarousel = document.getElementsByClassName('section-our-gallery__carousel-item');
+    var _iterator = _createForOfIteratorHelper(videoCarousel),
+      _step;
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var item = _step.value;
+        Object(lightgallery__WEBPACK_IMPORTED_MODULE_0__["default"])(item, {
+          plugins: [lightgallery_plugins_video__WEBPACK_IMPORTED_MODULE_1__["default"]],
+          videojs: true,
+          videojsOptions: {
+            muted: false
+          }
+        });
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+    Object(lightgallery__WEBPACK_IMPORTED_MODULE_0__["default"])(document.getElementById('thumbnails-gallery'), {
+      thumbnail: true
+    });
+  });
+  $(document).ready(function () {
+    PoisionSlickVideoGallery();
+  });
+})(jQuery);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/navigation.js":
 /*!******************************************************!*\
   !*** ./resources/assets/js/components/navigation.js ***!
@@ -121,8 +186,8 @@ global.$ = global.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\rimki\Local Sites\poison-wp\app\public\wp-content\themes\poison-theme\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\rimki\Local Sites\poison-wp\app\public\wp-content\themes\poison-theme\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
+__webpack_require__(/*! C:\Users\PC\Local Sites\poison-wwp\app\public\wp-content\themes\poison-theme\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\PC\Local Sites\poison-wwp\app\public\wp-content\themes\poison-theme\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
 
 
 /***/ })

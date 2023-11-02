@@ -314,7 +314,7 @@ add_filter('wpseo_opengraph_image', 'alter_existing_opengraph_image');
 
 function poision_line_heading()
 {
-	return '<div class="line-center" data-aos="fade-up" data-aos-duration="500">
+	echo '<div class="line-center" data-aos="fade-up" data-aos-duration="500">
 	<svg xmlns="http://www.w3.org/2000/svg" width="194" height="16" viewBox="0 0 194 16" fill="none">
 		<path d="M103 8H194" stroke="#D02028" stroke-width="2" />
 		<path d="M0 8H91" stroke="#D02028" stroke-width="2" />

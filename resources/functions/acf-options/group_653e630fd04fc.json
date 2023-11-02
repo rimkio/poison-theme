@@ -393,16 +393,14 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "category",
-            "add_term": 1,
+            "taxonomy": "product_cat",
+            "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
-            "return_format": "id",
+            "return_format": "object",
             "field_type": "checkbox",
-            "bidirectional": 0,
             "multiple": 0,
-            "allow_null": 0,
-            "bidirectional_target": []
+            "allow_null": 0
         },
         {
             "key": "field_653fa5d7a841e",
@@ -676,7 +674,7 @@
                     "name": "video",
                     "aria-label": "",
                     "type": "file",
-                    "instructions": "",
+                    "instructions": "Format video: MP4",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -688,7 +686,7 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": "webm, mp4",
+                    "mime_types": "webm, mp4, ogg",
                     "parent_repeater": "field_653fca0445670"
                 },
                 {
@@ -766,5 +764,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698679820
+    "modified": 1698854805
 }

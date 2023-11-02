@@ -116,4 +116,11 @@ add_filter( 'intermediate_image_sizes_advanced', function( $sizes ) {
 }, 10, 1 );
 
 
+function get_cart_contents() {
+	echo WC()->cart->get_cart_contents_count();
+	die();
+}
+
+add_action('wp_ajax_get_cart_contents', 'get_cart_contents');
+add_action('wp_ajax_nopriv_get_cart_contents', 'get_cart_contents');
 

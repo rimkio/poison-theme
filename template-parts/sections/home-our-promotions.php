@@ -11,7 +11,7 @@ $opr_heading = get_field("opr_heading");
         <?php if (isset($opr_heading) && !empty($opr_heading)) : ?>
             <h2 data-aos="fade-up" data-aos-duration="500" class="text-center"><?= $opr_heading ?></h2>
         <?php endif; ?>
-        <?php echo poision_line_heading(); ?>
+        <?php poision_line_heading(); ?>
         <?php
         $args = array(
             "post_type" => "khuyen-mai",
