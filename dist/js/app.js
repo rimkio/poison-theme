@@ -21,6 +21,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_gallery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/gallery */ "./resources/assets/js/components/gallery.js");
 /* harmony import */ var _components_tab__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/tab */ "./resources/assets/js/components/tab.js");
 /* harmony import */ var _components_tab__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_components_tab__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_filter_product__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/filter_product */ "./resources/assets/js/components/filter_product.js");
+/* harmony import */ var _components_filter_product__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_components_filter_product__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -35,6 +38,183 @@ aos__WEBPACK_IMPORTED_MODULE_1___default.a.init({
 });
 $(window).on("load", function () {
   aos__WEBPACK_IMPORTED_MODULE_1___default.a.refresh();
+});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/filter_product.js":
+/*!**********************************************************!*\
+  !*** ./resources/assets/js/components/filter_product.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery) {function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+jQuery(function ($) {
+  "use strict";
+
+  var poison_filter_product = function poison_filter_product() {
+    var isShop = $('.poison-shop');
+    if (!isShop.length) return;
+    var resultsElement = $('.poison-shop__result__wrap'),
+      btnLoadMore = $('#poison-shop__result__loadmore'),
+      rmInput = $('.remove-input'),
+      labelSearching = $('.bph-block-filter-events-searching-label'),
+      wrapInputSearching = $('.bph-block-filter-events-searching-input'),
+      inputSearching = $('#bph-search');
+    var category_ids = [],
+      type_ids = [];
+    function __ajax_filter() {
+      var val = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      try {
+        $.ajax({
+          type: "post",
+          url: php_data.ajax_url,
+          dataType: "json",
+          data: _objectSpread(_objectSpread({}, {
+            action: "poison_ajax_filter_product"
+          }), val),
+          success: function success(data) {
+            console.log(data);
+            if (data.hideLoadMore) btnLoadMore.hide();else btnLoadMore.show();
+            if (val.isLoadMore) resultsElement.append(data.items);else resultsElement.html(data.items);
+          }
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    ;
+    $(document).click(function (event) {
+      if (!$(event.target).is(".bph-filter-dropdown-wrap .data-tax")) {
+        $('.bph-filter-dropdown').slideUp();
+        $('.data-tax').removeClass("active");
+      }
+    });
+    $('input[data-checkbox]').on('click', function (e) {
+      var input_val = $(this).val(),
+        input_type = $(this).data('checkbox');
+      if (input_type == 'cat') {
+        if ($(this).is(':checked')) {
+          category_ids.push(input_val);
+        } else {
+          category_ids.splice($.inArray(input_val, category_ids), 1);
+        }
+      } else {
+        if ($(this).is(':checked')) {
+          type_ids.push(input_val);
+        } else {
+          type_ids.splice($.inArray(input_val, type_ids), 1);
+        }
+      }
+      var query = resultsElement.data('query'),
+        current_page = 1,
+        s = inputSearching.val(),
+        isLoadMore = false;
+      resultsElement.data('currentpage', 1);
+      resultsElement.attr('data-currentpage', 1);
+      __ajax_filter({
+        category_ids: category_ids,
+        type_ids: type_ids,
+        query: query,
+        current_page: current_page,
+        isLoadMore: isLoadMore,
+        s: s
+      });
+    });
+
+    //load more
+    $('.bph-btn-loadmore').on('click', function (e) {
+      var start_date = dataDayStart.val(),
+        end_date = dataDayEnd.val(),
+        festival = dataFestival.data('tax'),
+        genres = dataGenres.data('tax'),
+        query = $block.data('query'),
+        currentPage = parseInt($block.data('currentpage')) + 1,
+        isLoadMore = true,
+        s = inputSearching.val(),
+        arg_post = $block.data('post');
+      $block.data('currentpage', currentPage);
+      $block.attr('data-currentpage', currentPage);
+      __ajax_filter({
+        start_date: start_date,
+        end_date: end_date,
+        festival: festival,
+        genres: genres,
+        query: query,
+        currentPage: currentPage,
+        isLoadMore: isLoadMore,
+        arg_post: arg_post,
+        s: s
+      });
+    });
+    labelSearching.on('click', function (e) {
+      $(this).parent().addClass('showing');
+      setTimeout(function () {
+        $('#bph-search').focus();
+      }, 500);
+    });
+    rmInput.on('click', function (e) {
+      inputSearching.val('');
+      wrapInputSearching.removeClass('input-filling');
+      var start_date = dataDayStart.val(),
+        end_date = dataDayEnd.val(),
+        festival = dataFestival.data('tax'),
+        genres = dataGenres.data('tax'),
+        query = $block.data('query'),
+        currentPage = 1,
+        s = inputSearching.val(),
+        isLoadMore = false;
+      $block.data('currentpage', 1);
+      $block.attr('data-currentpage', 1);
+      __ajax_filter({
+        start_date: start_date,
+        end_date: end_date,
+        festival: festival,
+        genres: genres,
+        query: query,
+        currentPage: currentPage,
+        isLoadMore: isLoadMore,
+        s: s
+      });
+    });
+    inputSearching.keyup(function (event) {
+      var start_date = dataDayStart.val(),
+        end_date = dataDayEnd.val(),
+        festival = dataFestival.data('tax'),
+        genres = dataGenres.data('tax'),
+        query = $block.data('query'),
+        currentPage = 1,
+        s = $(this).val(),
+        isLoadMore = false;
+      $block.data('currentpage', 1);
+      $block.attr('data-currentpage', 1);
+      if (s === '') {
+        wrapInputSearching.removeClass('input-filling');
+      } else {
+        wrapInputSearching.addClass('input-filling');
+      }
+      __ajax_filter({
+        start_date: start_date,
+        end_date: end_date,
+        festival: festival,
+        genres: genres,
+        query: query,
+        currentPage: currentPage,
+        isLoadMore: isLoadMore,
+        s: s
+      });
+    });
+  };
+  $(window).on('load', function () {
+    poison_filter_product();
+  });
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
@@ -218,8 +398,8 @@ PoisionProductTab();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\rimki\Local Sites\poison-wp\app\public\wp-content\themes\poison-theme\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\rimki\Local Sites\poison-wp\app\public\wp-content\themes\poison-theme\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
+__webpack_require__(/*! C:\Users\PC\Local Sites\poison-wwp\app\public\wp-content\themes\poison-theme\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\PC\Local Sites\poison-wwp\app\public\wp-content\themes\poison-theme\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
 
 
 /***/ })

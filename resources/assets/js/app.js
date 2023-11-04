@@ -4,7 +4,8 @@ import 'aos/dist/aos.css';
 import './components/navigation';
 import './components/function';
 import './components/gallery';
-import './components/tab'
+import './components/tab';
+import './components/filter_product';
 
 AOS.init({
 
