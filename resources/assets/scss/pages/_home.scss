@@ -18,6 +18,11 @@
             padding-bottom: 160px;
         }
 
+        @include media-breakpoint-down(sm) {
+            padding-top: 110px;
+            padding-bottom: 110px;
+        }
+
         &-welcome {
             color: var(--color2, #D02028);
             font-size: 24px;
@@ -28,6 +33,10 @@
             display: block;
             margin-top: 35px;
             margin-bottom: 3px;
+            @include media-breakpoint-down(md) {
+                font-size: 20px;
+                margin-top: 15px;
+            }
         }
 
         .line-hero {
@@ -70,6 +79,7 @@
             @include media-breakpoint-down(md) {
                 font-size: 24px;
                 margin-bottom: 25px;
+
             }
         }
     }
@@ -155,7 +165,6 @@
 
 .home-aboutus {
     padding-top: 77px;
-    padding-bottom: 77px;
 
     &__wrap {
         background: var(--color4, #090C0F);
@@ -410,4 +419,3 @@
         }
     }
 }
-

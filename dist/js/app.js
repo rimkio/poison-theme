@@ -176,21 +176,27 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   !*** ./resources/assets/js/components/tab.js ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+/* WEBPACK VAR INJECTION */(function($) {var PoisionProductTab = function PoisionProductTab() {
+  var __tab_wrap = $('.home-our-product__cat');
+  if (!__tab_wrap.length) return;
+  $(document).on("click", ".home-our-product__cat-tab__item", function () {
+    $(this).parent().find('.home-our-product__cat-tab__item').removeClass('active');
+    $(this).addClass('active');
+    var ID = $(this).data('id');
+    var __tab_content = $(this).parents(__tab_wrap).find('.home-our-product__cat-tabcontent');
+    var __tab_content_active = $(this).parents(__tab_wrap).find("[data-id=".concat(ID, "]"));
+    __tab_content.removeClass('active');
+    __tab_content_active.addClass('active');
+    __tab_content.find('.home-our-product__cat-tabcontent__item').removeClass('aos-animate');
+    setTimeout(function () {
+      __tab_content_active.find('.home-our-product__cat-tabcontent__item').addClass('aos-animate');
+    }, 100);
+  });
+};
+PoisionProductTab();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
@@ -212,8 +218,8 @@ function openCity(evt, cityName) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\PC\Local Sites\poison-wwp\app\public\wp-content\themes\poison-theme\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\PC\Local Sites\poison-wwp\app\public\wp-content\themes\poison-theme\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
+__webpack_require__(/*! C:\Users\rimki\Local Sites\poison-wp\app\public\wp-content\themes\poison-theme\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\rimki\Local Sites\poison-wp\app\public\wp-content\themes\poison-theme\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
 
 
 /***/ })

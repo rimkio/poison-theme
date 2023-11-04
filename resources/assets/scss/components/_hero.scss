@@ -1,0 +1,33 @@
+.section-hero-shop {
+    background-image: url('../../images/bg-hero-shop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &::before {
+        content: '';
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: linear-gradient(74deg, rgba(0, 0, 0, 0.50) 16.1%, rgba(0, 0, 0, 0.26) 55.54%, rgba(0, 0, 0, 0.50) 91.61%);
+    }
+
+    h1 {
+        margin: 0;
+        padding-top: 196px;
+        padding-bottom: 196px;
+        position: relative;
+        z-index: 2;
+        @include media-breakpoint-down(lg) {
+            padding-top: 130px;
+            padding-bottom: 130px;
+        }
+        @include media-breakpoint-down(sm) {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+    }
+}
