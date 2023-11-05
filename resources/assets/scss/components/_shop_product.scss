@@ -1,0 +1,86 @@
+.poison-shop {
+    padding-top: 116px;
+    padding-bottom: 116px;
+
+    .row {
+        --bs-gutter-x: 32px;
+    }
+
+    &__result {
+        &__wrap {
+            row-gap: 32px;
+        }
+
+        &__item {
+            position: relative;
+            padding-top: 14px;
+            padding-bottom: 20px;
+
+            &::before {
+                content: '';
+                top: 0;
+                left: 50%;
+                position: absolute;
+                background: transparent;
+                z-index: 1;
+                transform: translateX(-50%);
+                border: 1px solid var(--color2, #D02028);
+                height: 100%;
+                width: calc(100% - 50px);
+            }
+
+            &-inner {
+                border: 1px solid var(--color2, #D02028);
+                background: var(--color4, #090C0F);
+                padding: 39px 52px 24px;
+                height: 100%;
+                position: relative;
+                z-index: 2;
+            }
+
+
+            &-img {
+                display: block;
+                height: 190px;
+                width: 190px;
+                border-radius: 190px;
+                overflow: hidden;
+            }
+
+            &-title {
+                a {
+                    color: var(--color2, #D02028);
+                    text-align: center;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: uppercase;
+                    margin-top: 26px;
+                    margin-bottom: 12px;
+                    display: block;
+                }
+            }
+
+            &-price {
+                color: var(--color3, #928342);
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+
+        &__button {
+            margin-top: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__loadmore {
+            display: inline-block;
+        }
+    }
+}

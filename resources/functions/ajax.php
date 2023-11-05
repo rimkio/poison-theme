@@ -5,8 +5,8 @@ add_action('wp_ajax_nopriv_poison_ajax_filter_product', 'poison_ajax_filter_prod
 function poison_ajax_filter_product()
 {
     $query = isset($_POST['query']) ? $_POST['query'] : [];
-    $category_ids = isset($_POST['category_ids']) ? $_POST['category_ids'] : [];
-    $type_ids = isset($_POST['type_ids']) ? $_POST['type_ids'] : [];
+    $category = isset($_POST['category']) ? $_POST['category'] : [];
+    $type = isset($_POST['type']) ? $_POST['type'] : [];
     $paged = isset($_POST['current_page']) ? $_POST['current_page'] : 1;
     $s = isset($_POST['s']) ? $_POST['s'] : '';
 
@@ -15,24 +15,24 @@ function poison_ajax_filter_product()
         'relation' => 'AND'
     );
 
-    if (!empty($category_ids)) {
+    if (!empty($category)) {
         array_push(
             $tax_query,
             array(
                 'taxonomy' => 'product_cat',
                 'field' => 'term_id',
-                'terms' => $category_ids,
+                'terms' => explode(",",$category),
             )
         );
     }
 
-    if (!empty($type_ids)) {
+    if (!empty($type)) {
         array_push(
             $tax_query,
             array(
                 'taxonomy' => 'loai_san_pham',
                 'field' => 'term_id',
-                'terms' => $type_ids,
+                'terms' => explode(",",$type),
             )
         );
     }

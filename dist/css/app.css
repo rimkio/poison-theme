@@ -11156,6 +11156,274 @@ img {
   }
 }
 
+.poison-shop__sidebar-inner {
+  background: var(--color4, #090C0F);
+  padding: 30px 16px 36px;
+}
+
+.poison-shop__sidebar-search {
+  position: relative;
+}
+
+.poison-shop__sidebar-search input {
+  border-bottom: 1px solid #fff !important;
+  padding-bottom: 14px;
+  color: var(--color5, #FFF);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  padding-right: 30px;
+}
+
+.poison-shop__sidebar-search input::-moz-placeholder {
+  color: #FFF;
+  opacity: 1;
+  /* Firefox */
+}
+
+.poison-shop__sidebar-search input::placeholder {
+  color: #FFF;
+  opacity: 1;
+  /* Firefox */
+}
+
+.poison-shop__sidebar-search input::-ms-input-placeholder {
+  /* Edge 12-18 */
+  color: #FFF;
+}
+
+.poison-shop__sidebar-search #btn-search {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+}
+
+.poison-shop__sidebar-heading {
+  margin-top: 40px;
+  margin-bottom: 24px;
+  color: var(--color5, #FFF);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.poison-shop__sidebar-listcheckbox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.poison-shop__sidebar-listcheckbox__item input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.poison-shop__sidebar-listcheckbox__item input:checked + label:after {
+  content: "";
+  height: 32px;
+  width: 32px;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Im1hdGVyaWFsLXN5bWJvbHM6Y2hlY2stYm94LW91dGxpbmUiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMTQuMTMzMyAyMS42TDIzLjUzMzMgMTIuMkwyMS42NjY3IDEwLjMzMzNMMTQuMTMzMyAxNy44NjY3TDEwLjMzMzMgMTQuMDY2N0w4LjQ2NjY3IDE1LjkzMzNMMTQuMTMzMyAyMS42Wk02LjY2NjY3IDI4QzUuOTMzMzQgMjggNS4zMDUzNCAyNy43Mzg3IDQuNzgyNjcgMjcuMjE2QzQuMjYgMjYuNjkzMyAzLjk5OTExIDI2LjA2NTggNCAyNS4zMzMzVjYuNjY2NjdDNCA1LjkzMzM0IDQuMjYxMzQgNS4zMDUzNCA0Ljc4NCA0Ljc4MjY3QzUuMzA2NjcgNC4yNiA1LjkzNDIyIDMuOTk5MTEgNi42NjY2NyA0SDI1LjMzMzNDMjYuMDY2NyA0IDI2LjY5NDcgNC4yNjEzNCAyNy4yMTczIDQuNzg0QzI3Ljc0IDUuMzA2NjcgMjguMDAwOSA1LjkzNDIyIDI4IDYuNjY2NjdWMjUuMzMzM0MyOCAyNi4wNjY3IDI3LjczODcgMjYuNjk0NyAyNy4yMTYgMjcuMjE3M0MyNi42OTMzIDI3Ljc0IDI2LjA2NTggMjguMDAwOSAyNS4zMzMzIDI4SDYuNjY2NjdaTTYuNjY2NjcgMjUuMzMzM0gyNS4zMzMzVjYuNjY2NjdINi42NjY2N1YyNS4zMzMzWiIgZmlsbD0iIzkyODM0MiIvPgo8L2c+Cjwvc3ZnPgo=");
+}
+
+.poison-shop__sidebar-listcheckbox__item label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 40px;
+  line-height: 32px;
+  color: var(--color5, #FFF);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  width: 100%;
+}
+
+.poison-shop__sidebar-listcheckbox__item label::before {
+  content: "";
+  height: 32px;
+  width: 32px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Im1hdGVyaWFsLXN5bWJvbHM6Y2hlY2stYm94LW91dGxpbmUiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNi42NjY2NyAyOEM1LjkzMzM0IDI4IDUuMzA1MzQgMjcuNzM4NyA0Ljc4MjY3IDI3LjIxNkM0LjI2IDI2LjY5MzMgMy45OTkxMSAyNi4wNjU4IDQgMjUuMzMzM1Y2LjY2NjY3QzQgNS45MzMzNCA0LjI2MTM0IDUuMzA1MzQgNC43ODQgNC43ODI2N0M1LjMwNjY3IDQuMjYgNS45MzQyMiAzLjk5OTExIDYuNjY2NjcgNEgyNS4zMzMzQzI2LjA2NjcgNCAyNi42OTQ3IDQuMjYxMzQgMjcuMjE3MyA0Ljc4NEMyNy43NCA1LjMwNjY3IDI4LjAwMDkgNS45MzQyMiAyOCA2LjY2NjY3VjI1LjMzMzNDMjggMjYuMDY2NyAyNy43Mzg3IDI2LjY5NDcgMjcuMjE2IDI3LjIxNzNDMjYuNjkzMyAyNy43NCAyNi4wNjU4IDI4LjAwMDkgMjUuMzMzMyAyOEg2LjY2NjY3Wk02LjY2NjY3IDI1LjMzMzNIMjUuMzMzM1Y2LjY2NjY3SDYuNjY2NjdWMjUuMzMzM1oiIGZpbGw9IndoaXRlIi8+CjwvZz4KPC9zdmc+Cg==");
+}
+
+.poison-shop__sidebar-featured del {
+  display: none;
+}
+
+.poison-shop__sidebar-sales .poison-shop__sidebar-listproduct__item .listproduct-item__content-price {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.poison-shop__sidebar-listproduct {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.poison-shop__sidebar-listproduct__item .listproduct-item__inner {
+  display: flex;
+}
+
+.poison-shop__sidebar-listproduct__item .listproduct-item__img {
+  width: 60px;
+  height: 60px;
+}
+
+.poison-shop__sidebar-listproduct__item .listproduct-item__img a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.poison-shop__sidebar-listproduct__item .listproduct-item__content {
+  padding-left: 12px;
+}
+
+.poison-shop__sidebar-listproduct__item .listproduct-item__content h6,
+.poison-shop__sidebar-listproduct__item .listproduct-item__content .h6,
+.poison-shop__sidebar-listproduct__item .listproduct-item__content a {
+  color: var(--color5, #FFF);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+.poison-shop__sidebar-listproduct__item .listproduct-item__content-price {
+  color: var(--color3, #928342);
+  font-family: Lora;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.poison-shop__sidebar-listproduct__item .listproduct-item__content-price ins {
+  text-decoration: none;
+}
+
+.poison-shop__sidebar-listproduct__item .listproduct-item__content-price del {
+  color: var(--color2, #D02028);
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  -webkit-text-decoration-line: strikethrough;
+          text-decoration-line: strikethrough;
+}
+
+.poison-shop {
+  padding-top: 116px;
+  padding-bottom: 116px;
+}
+
+.poison-shop .row {
+  --bs-gutter-x: 32px;
+}
+
+.poison-shop__result__wrap {
+  row-gap: 32px;
+}
+
+.poison-shop__result__item {
+  position: relative;
+  padding-top: 14px;
+  padding-bottom: 20px;
+}
+
+.poison-shop__result__item::before {
+  content: "";
+  top: 0;
+  left: 50%;
+  position: absolute;
+  background: transparent;
+  z-index: 1;
+  transform: translateX(-50%);
+  border: 1px solid var(--color2, #D02028);
+  height: 100%;
+  width: calc(100% - 50px);
+}
+
+.poison-shop__result__item-inner {
+  border: 1px solid var(--color2, #D02028);
+  background: var(--color4, #090C0F);
+  padding: 39px 52px 24px;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.poison-shop__result__item-img {
+  display: block;
+  height: 190px;
+  width: 190px;
+  border-radius: 190px;
+  overflow: hidden;
+}
+
+.poison-shop__result__item-title a {
+  color: var(--color2, #D02028);
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-top: 26px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.poison-shop__result__item-price {
+  color: var(--color3, #928342);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.poison-shop__result__button {
+  margin-top: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poison-shop__result__loadmore {
+  display: inline-block;
+}
+
 .main-footer__widget {
   background: var(--color4, #090C0F);
   padding-top: 77px;

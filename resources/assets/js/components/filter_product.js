@@ -6,10 +6,11 @@ jQuery(function ($) {
 
         const resultsElement = $('.poison-shop__result__wrap'),
             btnLoadMore = $('#poison-shop__result__loadmore'),
+            ids_cat = $('#ids_cat_product'),
+            ids_type = $('#ids_type_product'),
             rmInput = $('.remove-input'),
-            labelSearching = $('.bph-block-filter-events-searching-label'),
-            wrapInputSearching = $('.bph-block-filter-events-searching-input'),
-            inputSearching = $('#bph-search');
+            btnSearch = $('#btn-search'),
+            inputSearch = $('.poison-shop__sidebar-search').find('input');
 
         let category_ids = [],
             type_ids = [];
@@ -32,7 +33,7 @@ jQuery(function ($) {
                         else
                             btnLoadMore.show();
 
-                        if (val.isLoadMore)
+                        if (val.is_loadmore)
                             resultsElement.append(data.items);
                         else
                             resultsElement.html(data.items);
@@ -44,12 +45,16 @@ jQuery(function ($) {
             }
         };
 
-        $(document).click(function (event) {
-            if (!$(event.target).is(".bph-filter-dropdown-wrap .data-tax")) {
-                $('.bph-filter-dropdown').slideUp();
-                $('.data-tax').removeClass("active");
-            }
-        });
+        function get_params_call_ajax(is_loadmore, current_page) {
+            let query = resultsElement.data('query'),
+                category = ids_cat.val(),
+                type = ids_type.val(),
+                s = inputSearch.val();
+
+            resultsElement.data('currentpage', current_page);
+            resultsElement.attr('data-currentpage', current_page);
+            __ajax_filter({ category, type, query, current_page, is_loadmore, s });
+        }
 
         $('input[data-checkbox]').on('click', function (e) {
             let input_val = $(this).val(),
@@ -61,47 +66,30 @@ jQuery(function ($) {
                 } else {
                     category_ids.splice($.inArray(input_val, category_ids), 1);
                 }
+                ids_cat.val(JSON.parse(JSON.stringify(category_ids)))
             } else {
                 if ($(this).is(':checked')) {
                     type_ids.push(input_val);
                 } else {
                     type_ids.splice($.inArray(input_val, type_ids), 1);
                 }
+                ids_type.val(JSON.parse(JSON.stringify(type_ids)))
             }
 
-            let query = resultsElement.data('query'),
-                current_page = 1,
-                s = inputSearching.val(),
-                isLoadMore = false;
-            resultsElement.data('currentpage', 1);
-            resultsElement.attr('data-currentpage', 1);
-            __ajax_filter({ category_ids, type_ids, query, current_page, isLoadMore, s });
+            get_params_call_ajax(false, 1);
         });
 
         //load more
-        $('.bph-btn-loadmore').on('click', function (e) {
-            let start_date = dataDayStart.val(),
-                end_date = dataDayEnd.val(),
-                festival = dataFestival.data('tax'),
-                genres = dataGenres.data('tax'),
-                query = $block.data('query'),
-                currentPage = parseInt($block.data('currentpage')) + 1,
-                isLoadMore = true,
-                s = inputSearching.val(),
-                arg_post = $block.data('post');
-
-            $block.data('currentpage', currentPage);
-            $block.attr('data-currentpage', currentPage);
-            __ajax_filter({ start_date, end_date, festival, genres, query, currentPage, isLoadMore, arg_post, s });
+        btnLoadMore.on('click', function (e) {
+            let currentPage = parseInt(resultsElement.data('currentpage')) + 1;
+            get_params_call_ajax(true, currentPage);
         });
 
-        labelSearching.on('click', function (e) {
-            $(this).parent().addClass('showing');
-            setTimeout(function () {
-                $('#bph-search').focus();
-            }, 500)
-
+        btnSearch.on('click', function (e) {            
+            get_params_call_ajax(false, 1);
         });
+
+
 
         rmInput.on('click', function (e) {
             inputSearching.val('');
@@ -119,25 +107,6 @@ jQuery(function ($) {
             __ajax_filter({ start_date, end_date, festival, genres, query, currentPage, isLoadMore, s });
         });
 
-        inputSearching.keyup(function (event) {
-            let start_date = dataDayStart.val(),
-                end_date = dataDayEnd.val(),
-                festival = dataFestival.data('tax'),
-                genres = dataGenres.data('tax'),
-                query = $block.data('query'),
-                currentPage = 1,
-                s = $(this).val(),
-                isLoadMore = false;
-            $block.data('currentpage', 1);
-            $block.attr('data-currentpage', 1);
-            if (s === '') {
-                wrapInputSearching.removeClass('input-filling');
-            } else {
-                wrapInputSearching.addClass('input-filling');
-            }
-
-            __ajax_filter({ start_date, end_date, festival, genres, query, currentPage, isLoadMore, s });
-        });
     };
 
     $(window).on('load', function () {
