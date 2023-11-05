@@ -61,7 +61,6 @@ jQuery(function ($) {
         $('input[data-checkbox]').on('click', function (e) {
             let input_val = $(this).val(),
                 input_type = $(this).data('checkbox');
-
             if (input_type == 'cat') {
                 if ($(this).is(':checked')) {
                     category_ids.push(input_val);

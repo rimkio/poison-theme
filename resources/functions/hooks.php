@@ -208,3 +208,24 @@ function poison_child_menu_mobile() {
 }
 
 add_action('poison_hook_menu_mobile', 'poison_child_menu_mobile');
+
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'poison_add_to_cart_button_text_single' ); 
+function poison_add_to_cart_button_text_single() {
+    return __( 'ĐẶT MUA SẢN PHẨM', 'poison' ); 
+}
+
+
+add_filter( 'woocommerce_product_tabs', 'poison_rename_description_tab' );
+function poison_rename_description_tab( $tabs ) {
+	$tabs[ 'description' ][ 'title' ] = 'THÔNG TIN CHI TIẾT';
+	return $tabs;
+}
+
+add_filter( 'woocommerce_product_description_heading', '__return_null' );
+
+
+add_filter('woocommerce_product_related_products_heading',function(){
+
+	return 'SẢN PHẨM LIÊN QUAN';
+ 
+ });

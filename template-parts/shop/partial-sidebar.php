@@ -28,11 +28,16 @@ $product_ids_sale = wc_get_product_ids_on_sale();
     <div class="poison-shop__sidebar-part poison-shop__sidebar-category">
         <h6 class="poison-shop__sidebar-heading">TÌM THEO DANH MỤC</h6>
         <div class="wrap-toggle poison-shop__sidebar-listcheckbox">
-            <input type="hidden" id="ids_cat_product" value="">
+            <?php
+            $term_id = '';
+            if (isset(get_queried_object()->term_id) && get_queried_object()->term_id) {
+                $term_id = get_queried_object()->term_id;
+            } ?>
+            <input type="hidden" id="ids_cat_product" value="<?= $term_id ?>">
             <?php if (!empty($product_cat)) { ?>
                 <?php foreach ($product_cat as $category) { ?>
                     <div class="poison-shop__sidebar-listcheckbox__item">
-                        <input type="checkbox" data-checkbox="cat" id="<?= $category->slug ?>" name="<?= $category->slug ?>" value="<?= $category->term_id ?>">
+                        <input type="checkbox" data-checkbox="cat" <?=($term_id == $category->term_id) ? 'checked' : ''?> id="<?= $category->slug ?>" name="<?= $category->slug ?>" value="<?= $category->term_id ?>">
                         <label for="<?= $category->slug ?>"> <?= $category->name ?> (<?= $category->count ?>)</label><br>
                     </div>
                 <?php } ?>
