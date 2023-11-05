@@ -65,7 +65,7 @@ $product_category = get_field("product_category");
                                 <?php wp_reset_postdata(); ?>
                             </div>
                         <?php else : ?>
-                            <p><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
+                            <p><?php esc_html_e('Xin lỗi, không có bài phù hợp tiêu chí của bạn.'); ?></p>
                         <?php endif; ?>
                     </div>
                 <?php } ?>

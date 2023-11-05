@@ -2,11 +2,35 @@
     &-inner {
         background: var(--color4, #090C0F);
         padding: 30px 16px 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        @include media-breakpoint-down(lg) {
+            padding: 30px 24px 36px;
+        }
     }
 
     &-search {
         position: relative;
+        #clear-input{
+            position: absolute;
+            right: 30px;
+            width: 24px;
+            cursor: pointer;
+            height: 24px;
+            top: 0;
+            display: none;
+            svg{
+                width: 24px;
+                height: 24px;
+            }
+        }
 
+        &.input-filling{
+            #clear-input{
+                display: block;
+            }
+        }
         input {
             border-bottom: 1px solid #fff !important;
             padding-bottom: 14px;
@@ -20,7 +44,7 @@
             outline: none;
             border: none;
             width: 100%;
-            padding-right: 30px;
+            padding-right: 64px;
 
             &::placeholder {
                 color: #FFF;
@@ -42,29 +66,56 @@
         }
     }
 
-    &-heading {
-        margin-top: 40px;
-        margin-bottom: 24px;
+    &-heading {        
         color: var(--color5, #FFF);
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
         text-transform: uppercase;
+        position: relative;
+        margin: 0;
+        @include media-breakpoint-down(lg) {
+            cursor: pointer;
+        }
+
+        &::after {
+            content: '';
+            height: 24px;
+            width: 24px;
+            right: 0;
+            top: 0;
+            position: absolute;
+            background-image: url('data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjRkZGIiBoZWlnaHQ9IjY0cHgiIHdpZHRoPSI2NHB4IiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMzMwIDMzMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgc3Ryb2tlPSIjRkZGIj4KDTxnIGlkPSJTVkdSZXBvX2JnQ2FycmllciIgc3Ryb2tlLXdpZHRoPSIwIi8+Cg08ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KDTxnIGlkPSJTVkdSZXBvX2ljb25DYXJyaWVyIj4gPHBhdGggaWQ9IlhNTElEXzIyNV8iIGQ9Ik0zMjUuNjA3LDc5LjM5M2MtNS44NTctNS44NTctMTUuMzU1LTUuODU4LTIxLjIxMywwLjAwMWwtMTM5LjM5LDEzOS4zOTNMMjUuNjA3LDc5LjM5MyBjLTUuODU3LTUuODU3LTE1LjM1NS01Ljg1OC0yMS4yMTMsMC4wMDFjLTUuODU4LDUuODU4LTUuODU4LDE1LjM1NSwwLDIxLjIxM2wxNTAuMDA0LDE1MGMyLjgxMywyLjgxMyw2LjYyOCw0LjM5MywxMC42MDYsNC4zOTMgczcuNzk0LTEuNTgxLDEwLjYwNi00LjM5NGwxNDkuOTk2LTE1MEMzMzEuNDY1LDk0Ljc0OSwzMzEuNDY1LDg1LjI1MSwzMjUuNjA3LDc5LjM5M3oiLz4gPC9nPgoNPC9zdmc+');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: none;
+
+            @include media-breakpoint-down(lg) {
+                display: block;
+            }
+        }
     }
 
     &-listcheckbox {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+        margin-top: 24px;
+        display: none;
+        @include media-breakpoint-up(lg) {
+            display: block !important;
+        }
 
         &__item {
+            &:not(:last-child){
+                margin-bottom: 12px;
+            }
             input {
                 opacity: 0;
                 width: 0;
                 height: 0;
                 visibility: hidden;
                 display: none;
+
                 &:checked {
                     +label:after {
                         content: "";
@@ -127,11 +178,16 @@
     }
 
     &-listproduct {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+        margin-top: 24px;
+        display: none;
+        @include media-breakpoint-up(lg) {
+            display: block !important;
+        }
 
         &__item {
+            &:not(:last-child){
+                margin-bottom: 16px;
+            }
             .listproduct-item__inner {
                 display: flex;
             }

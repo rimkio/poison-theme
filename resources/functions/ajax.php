@@ -53,7 +53,7 @@ function poison_ajax_filter_product()
             poison_product_item_result();
         }
     } else {
-        echo '<div class="error-404">Sorry, no posts matched your criteria.</div>';
+        echo '<div class="error-404">Xin lỗi, không có bài phù hợp tiêu chí của bạn.</div>';
         $hideLoadMore = true;
     }
     $items = ob_get_clean();

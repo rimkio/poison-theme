@@ -56,7 +56,7 @@ $on_button = get_field("on_button");
                 <?php wp_reset_postdata(); ?>
             </div>
         <?php else : ?>
-            <p style="text-align: center;margin-top: 50px"><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
+            <p style="text-align: center;margin-top: 50px"><?php esc_html_e('Xin lỗi, không có bài phù hợp tiêu chí của bạn.'); ?></p>
         <?php endif; ?>
 
         <?php if ($on_button) { ?>

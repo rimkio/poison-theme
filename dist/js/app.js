@@ -81,8 +81,11 @@ jQuery(function ($) {
           data: _objectSpread(_objectSpread({}, {
             action: "poison_ajax_filter_product"
           }), val),
+          beforeSend: function beforeSend() {
+            $('.poison-shop__result').addClass('loading');
+          },
           success: function success(data) {
-            console.log(data);
+            $('.poison-shop__result').removeClass('loading');
             if (data.hideLoadMore) btnLoadMore.hide();else btnLoadMore.show();
             if (val.is_loadmore) resultsElement.append(data.items);else resultsElement.html(data.items);
           }
@@ -137,29 +140,22 @@ jQuery(function ($) {
     btnSearch.on('click', function (e) {
       get_params_call_ajax(false, 1);
     });
-    rmInput.on('click', function (e) {
-      inputSearching.val('');
-      wrapInputSearching.removeClass('input-filling');
-      var start_date = dataDayStart.val(),
-        end_date = dataDayEnd.val(),
-        festival = dataFestival.data('tax'),
-        genres = dataGenres.data('tax'),
-        query = $block.data('query'),
-        currentPage = 1,
-        s = inputSearching.val(),
-        isLoadMore = false;
-      $block.data('currentpage', 1);
-      $block.attr('data-currentpage', 1);
-      __ajax_filter({
-        start_date: start_date,
-        end_date: end_date,
-        festival: festival,
-        genres: genres,
-        query: query,
-        currentPage: currentPage,
-        isLoadMore: isLoadMore,
-        s: s
-      });
+    $('#clear-input').on('click', function (e) {
+      inputSearch.val('');
+      inputSearch.focus();
+      $('.poison-shop__sidebar-search').removeClass('input-filling');
+      get_params_call_ajax(false, 1);
+    });
+    inputSearch.keyup(function (event) {
+      var s = inputSearch.val();
+      if (s === '') {
+        $('.poison-shop__sidebar-search').removeClass('input-filling');
+      } else {
+        $('.poison-shop__sidebar-search').addClass('input-filling');
+      }
+    });
+    $('.poison-shop__sidebar-heading').on('click', function (e) {
+      $(this).parent().find('.wrap-toggle').slideToggle(500);
     });
   };
   $(window).on('load', function () {

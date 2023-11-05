@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-
+<?= poison_template_news_hero_header(); ?>
 <?php
 /**
  * woocommerce_before_main_content hook.

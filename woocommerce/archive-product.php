@@ -11,11 +11,12 @@
     <div class="poison-shop">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 poison-shop__sidebar">
+                <div class="col-lg-3 poison-shop__sidebar">
                     <?php get_template_part('template-parts/shop/partial', 'sidebar'); ?>
                 </div>
-                <div class="col-md-9 poison-shop__result">
-                <?php get_template_part('template-parts/shop/partial', 'product'); ?>
+                <div class="col-lg-9 poison-shop__result">
+                    <div class="spinner-3"></div>
+                    <?php get_template_part('template-parts/shop/partial', 'product'); ?>
                 </div>
             </div>
         </div>

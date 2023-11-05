@@ -121,7 +121,7 @@ function poison_list_product_sidebar($arr_id)
         endwhile;
         wp_reset_postdata();
     else :
-        echo '<p>Sorry, no posts matched your criteria.</p>';
+        echo '<p>Xin lỗi, không có bài phù hợp tiêu chí của bạn.</p>';
     endif;
 }
 
@@ -150,7 +150,7 @@ function poison_product_item_result()
 {
     $_product = wc_get_product(get_the_ID());
 ?>
-    <div class="col-md-4 poison-shop__result__item">
+    <div class="col-md-6 col-xl-4 poison-shop__result__item" data-aos="fade-up" data-aos-duration="500">
         <div class="poison-shop__result__item-inner">
             <a class="poison-shop__result__item-img" href="<?= get_permalink() ?>">
                 <img src="<?= wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())) ?>" alt="">

@@ -43,7 +43,7 @@ $opr_heading = get_field("opr_heading");
                 <?php wp_reset_postdata(); ?>
             </div>
         <?php else : ?>
-            <p style="text-align: center;margin-top: 50px"><?php esc_html_e('Sorry, no posts matched your criteria.'); ?></p>
+            <p style="text-align: center;margin-top: 50px"><?php esc_html_e('SXin lỗi, không có bài phù hợp tiêu chí của bạn.'); ?></p>
         <?php endif; ?>
     </div>
 </section>

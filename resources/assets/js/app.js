@@ -8,7 +8,6 @@ import './components/tab';
 import './components/filter_product';
 
 AOS.init({
-
     duration: 1200,
     once: true,
     disable: 'mobile',

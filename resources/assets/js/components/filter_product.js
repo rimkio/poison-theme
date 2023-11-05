@@ -25,9 +25,11 @@ jQuery(function ($) {
                         ...{ action: "poison_ajax_filter_product" },
                         ...val,
                     },
+                    beforeSend: function() {
+                        $('.poison-shop__result').addClass('loading');    
+                    },
                     success: function (data) {
-                        console.log(data)
-
+                        $('.poison-shop__result').removeClass('loading');
                         if (data.hideLoadMore)
                             btnLoadMore.hide();
                         else
@@ -89,22 +91,24 @@ jQuery(function ($) {
             get_params_call_ajax(false, 1);
         });
 
+        $('#clear-input').on('click', function (e) {    
+            inputSearch.val('');        
+            inputSearch.focus();
+            $('.poison-shop__sidebar-search').removeClass('input-filling');
+            get_params_call_ajax(false, 1);
+        });
 
+        inputSearch.keyup(function (event) {
+            let s = inputSearch.val();
+            if (s === '') {
+                $('.poison-shop__sidebar-search').removeClass('input-filling');
+            } else {
+                $('.poison-shop__sidebar-search').addClass('input-filling');
+            }
+        });
 
-        rmInput.on('click', function (e) {
-            inputSearching.val('');
-            wrapInputSearching.removeClass('input-filling');
-            let start_date = dataDayStart.val(),
-                end_date = dataDayEnd.val(),
-                festival = dataFestival.data('tax'),
-                genres = dataGenres.data('tax'),
-                query = $block.data('query'),
-                currentPage = 1,
-                s = inputSearching.val(),
-                isLoadMore = false;
-            $block.data('currentpage', 1);
-            $block.attr('data-currentpage', 1);
-            __ajax_filter({ start_date, end_date, festival, genres, query, currentPage, isLoadMore, s });
+        $('.poison-shop__sidebar-heading').on('click', function (e) {
+            $(this).parent().find('.wrap-toggle').slideToggle(500);
         });
 
     };
