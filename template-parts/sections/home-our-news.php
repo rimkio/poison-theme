@@ -61,7 +61,7 @@ $on_button = get_field("on_button");
 
         <?php if ($on_button) { ?>
             <div class="d-flex align-items-center justify-content-center home-our-news__button" data-aos="fade-up" data-aos-duration="500">
-                <a class="btn" href="<?= $on_button['url'] ?>" target="<?= $on_button['target'] ?>"><?= $on_button['title'] ?></a>
+                <a class="btn" href="<?= $on_button['url'] ?>" target="<?= $on_button['target'] ?>"><span><?= $on_button['title'] ?></span></a>
             </div>
         <?php } ?>
     </div>

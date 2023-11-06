@@ -5,8 +5,9 @@
     font-weight: 700;
     line-height: normal;
     background: transparent;
-    padding: 23px 68px;
+    padding: 21px 68px;
     position: relative;
+    display: inline-block;
     border: 2px solid var(--color3, $color_3);
     transition: all 0.2s ease;
 
@@ -28,7 +29,7 @@
         background-color: var(--color3, $color_3);
         width: calc(100% - 24px);
         height: calc(100% - 24px);
-        z-index: -1;
+        z-index: 1;
         transition: all 0.5s ease;
         @include media-breakpoint-down(sm) {
             top: 10px;
@@ -37,6 +38,8 @@
             height: calc(100% - 20px);
         }
     }
-
-
+    span{
+        position: relative;
+        z-index: 2;
+    }
 }

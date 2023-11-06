@@ -25,8 +25,8 @@ jQuery(function ($) {
                         ...{ action: "poison_ajax_filter_product" },
                         ...val,
                     },
-                    beforeSend: function() {
-                        $('.poison-shop__result').addClass('loading');    
+                    beforeSend: function () {
+                        $('.poison-shop__result').addClass('loading');
                     },
                     success: function (data) {
                         $('.poison-shop__result').removeClass('loading');
@@ -35,10 +35,14 @@ jQuery(function ($) {
                         else
                             btnLoadMore.show();
 
-                        if (val.is_loadmore)
-                            resultsElement.append(data.items);
-                        else
+                        if (val.is_loadmore) {
+                            resultsElement.append(data.items);            
+                        } else {
                             resultsElement.html(data.items);
+                            $('html, body').animate({
+                                scrollTop: $(".poison-shop__result").offset().top - 100
+                            }, 800);
+                        }
                     }
                 });
 
@@ -86,12 +90,12 @@ jQuery(function ($) {
             get_params_call_ajax(true, currentPage);
         });
 
-        btnSearch.on('click', function (e) {            
+        btnSearch.on('click', function (e) {
             get_params_call_ajax(false, 1);
         });
 
-        $('#clear-input').on('click', function (e) {    
-            inputSearch.val('');        
+        $('#clear-input').on('click', function (e) {
+            inputSearch.val('');
             inputSearch.focus();
             $('.poison-shop__sidebar-search').removeClass('input-filling');
             get_params_call_ajax(false, 1);
@@ -103,6 +107,12 @@ jQuery(function ($) {
                 $('.poison-shop__sidebar-search').removeClass('input-filling');
             } else {
                 $('.poison-shop__sidebar-search').addClass('input-filling');
+            }
+        });
+
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                get_params_call_ajax(false, 1);
             }
         });
 

@@ -10721,6 +10721,16 @@ img {
   display: none;
 }
 
+.btn-about-us {
+  margin-top: 30px;
+}
+
+@media (max-width: 767.98px) {
+  .btn-about-us {
+    margin-top: 15px;
+  }
+}
+
 @font-face {
   font-family: "Lora";
   src: url(../fonts/Lora-Bold.ttf?04a54a65953cf0c6f9c2170ee70ee8b7) format("truetype");
@@ -10792,8 +10802,9 @@ img {
   font-weight: 700;
   line-height: normal;
   background: transparent;
-  padding: 23px 68px;
+  padding: 21px 68px;
   position: relative;
+  display: inline-block;
   border: 2px solid var(--color3, #928342);
   transition: all 0.2s ease;
 }
@@ -10817,7 +10828,7 @@ img {
   background-color: var(--color3, #928342);
   width: calc(100% - 24px);
   height: calc(100% - 24px);
-  z-index: -1;
+  z-index: 1;
   transition: all 0.5s ease;
 }
 
@@ -10828,6 +10839,11 @@ img {
     width: calc(100% - 20px);
     height: calc(100% - 20px);
   }
+}
+
+.btn span {
+  position: relative;
+  z-index: 2;
 }
 
 .section-our-gallery {
@@ -11239,6 +11255,7 @@ img {
   border: none;
   width: 100%;
   padding-right: 64px;
+  border-radius: 0;
 }
 
 .poison-shop__sidebar-search input::-moz-placeholder {
@@ -11458,6 +11475,10 @@ img {
   line-height: normal;
   -webkit-text-decoration-line: strikethrough;
           text-decoration-line: strikethrough;
+}
+
+.translated-ltr .poison-shop__sidebar-listproduct__item .listproduct-item__content-price {
+  font-size: 13px;
 }
 
 @keyframes s3 {
@@ -12171,10 +12192,20 @@ img {
   display: block;
 }
 
+.error-404 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
 .single-product .product .onsale {
   display: block;
   width: 50px;
   height: 50px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .single-product .product .woocommerce-product-gallery,
@@ -12194,11 +12225,21 @@ img {
   display: block;
 }
 
+@media (max-width: 767.98px) {
+  .single-product .product .woocommerce-product-gallery__image a {
+    height: auto;
+  }
+}
+
 .single-product .product .woocommerce-product-gallery__image a img {
   max-width: 100%;
   max-height: 100%;
   height: auto;
   width: auto;
+}
+
+.single-product .product .summary {
+  min-height: auto;
 }
 
 .single-product .product .summary .product_title {
@@ -12266,6 +12307,12 @@ img {
   background: var(--color4, #090C0F);
   padding: 37px 48px 48px;
   margin-bottom: 68px;
+}
+
+@media (max-width: 767.98px) {
+  .single-product .product .woocommerce-tabs {
+    padding: 37px 24px 30px;
+  }
 }
 
 .single-product .product .woocommerce-tabs ul.tabs {

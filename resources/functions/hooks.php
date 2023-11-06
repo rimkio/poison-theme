@@ -126,7 +126,7 @@ function poison_post_loop_item_template($post_id, $index)
 
 ?>
 
-	<article <?= $anm; ?> <?php post_class('item post-loop-item col-md-4') ?>>
+	<article <?= $anm; ?> <?php post_class('item post-loop-item col-sm-6 col-md-12 col-lg-6') ?>>
 
 		<?php poison_post_item() ?>
 

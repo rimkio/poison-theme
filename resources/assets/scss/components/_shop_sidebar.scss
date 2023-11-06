@@ -49,6 +49,7 @@
             border: none;
             width: 100%;
             padding-right: 64px;
+            border-radius: 0;
 
             &::placeholder {
                 color: #FFF;
@@ -266,5 +267,11 @@
                 }
             }
         }
+    }
+}
+
+.translated-ltr{
+    .poison-shop__sidebar-listproduct__item .listproduct-item__content-price{
+        font-size: 13px;
     }
 }

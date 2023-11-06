@@ -87,7 +87,14 @@ jQuery(function ($) {
           success: function success(data) {
             $('.poison-shop__result').removeClass('loading');
             if (data.hideLoadMore) btnLoadMore.hide();else btnLoadMore.show();
-            if (val.is_loadmore) resultsElement.append(data.items);else resultsElement.html(data.items);
+            if (val.is_loadmore) {
+              resultsElement.append(data.items);
+            } else {
+              resultsElement.html(data.items);
+              $('html, body').animate({
+                scrollTop: $(".poison-shop__result").offset().top - 100
+              }, 800);
+            }
           }
         });
       } catch (e) {
@@ -152,6 +159,11 @@ jQuery(function ($) {
         $('.poison-shop__sidebar-search').removeClass('input-filling');
       } else {
         $('.poison-shop__sidebar-search').addClass('input-filling');
+      }
+    });
+    $(document).keypress(function (e) {
+      if (e.which == 13) {
+        get_params_call_ajax(false, 1);
       }
     });
     $('.poison-shop__sidebar-heading').on('click', function (e) {
@@ -344,8 +356,8 @@ PoisionProductTab();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\PC\Local Sites\poison-wwp\app\public\wp-content\themes\poison-theme\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\PC\Local Sites\poison-wwp\app\public\wp-content\themes\poison-theme\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
+__webpack_require__(/*! C:\Users\rimki\Local Sites\poison-wp\app\public\wp-content\themes\poison-theme\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\rimki\Local Sites\poison-wp\app\public\wp-content\themes\poison-theme\resources\assets\scss\app.scss */"./resources/assets/scss/app.scss");
 
 
 /***/ })

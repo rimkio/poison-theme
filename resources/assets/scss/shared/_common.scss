@@ -63,3 +63,10 @@ img {
         }
     }
 }
+
+.btn-about-us{
+    margin-top: 30px;
+    @include media-breakpoint-down(md) {
+        margin-top: 15px;
+    }
+}

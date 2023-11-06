@@ -140,3 +140,22 @@ function track_post_views() {
 }
 
 add_action('wp_head', 'track_post_views');
+
+/*
+ * Disabling the "Ship to a different address"
+ */
+
+add_filter( 'woocommerce_cart_needs_shipping_address', '__return_false' );
+add_filter( 'woocommerce_checkout_fields', 'disable_shipping_address_checkout_fields' );
+
+function disable_shipping_address_checkout_fields( $fields ) {
+	unset( $fields['shipping']['shipping_address_1'] );
+	unset( $fields['shipping']['shipping_address_2'] );
+	unset( $fields['shipping']['shipping_city'] );
+	unset( $fields['shipping']['shipping_postcode'] );
+	unset( $fields['shipping']['shipping_country'] );
+	unset( $fields['shipping']['shipping_state'] );
+	unset( $fields['shipping']['shipping_company'] );
+	unset( $fields['shipping']['shipping_phone'] );
+	return $fields;
+}

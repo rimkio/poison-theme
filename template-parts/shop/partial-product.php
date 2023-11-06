@@ -33,5 +33,5 @@ $the_query = new WP_Query($args); ?>
 <?php endif; ?>
 
 <div class="poison-shop__result__button" style="display: <?php echo ($max_num_pages > 1) ? 'flex' : 'none'; ?>">
-    <a href="javascript:void(0)" class="btn" id="poison-shop__result__loadmore">TẢI THÊM SẢN PHẨM</a>
+    <a href="javascript:void(0)" class="btn" id="poison-shop__result__loadmore"><span>TẢI THÊM SẢN PHẨM</span></a>
 </div>

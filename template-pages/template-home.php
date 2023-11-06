@@ -39,7 +39,7 @@ $image_4 = get_field("image_4");
                 <?php endif; ?>
 
                 <?php if (isset($button) && !empty($button)) : ?>
-                    <a data-aos="fade-in" data-aos-duration="500" class="btn home-hero__inner-button" href="<?= $button['url'] ?>" target="<?= $button['target'] ?>"><?= $button['title'] ?></a>
+                    <a data-aos="fade-in" data-aos-duration="500" class="btn home-hero__inner-button" href="<?= $button['url'] ?>" target="<?= $button['target'] ?>"><span><?= $button['title'] ?></span></a>
                 <?php endif; ?>
             </div>
         </div>
